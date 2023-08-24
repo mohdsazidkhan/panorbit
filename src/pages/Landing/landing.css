@@ -1,0 +1,84 @@
+.mainBg {
+    background: rgb(2, 0, 36);
+    background: linear-gradient(90deg, rgb(108 66 177) 0%, rgb(19 19 201) 35%);
+    height: 100vh;
+    position: relative;
+}
+
+.mainBg:before,
+.mainBg:after {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    height: calc(100% - var(--b, 10px));
+    /*control the gap here*/
+    -webkit-mask:
+        radial-gradient(var(--r1, 100%) var(--r2, 80%) at var(--p1, top), white 79.5%, transparent 80%) var(--d1, right),
+        radial-gradient(var(--r1, 100%) var(--r2, 80%) at var(--p2, bottom), transparent 79.5%, white 80%) var(--d2, left);
+    mask:
+        radial-gradient(var(--r1, 100%) var(--r2, 80%) at var(--p1, top), white 79.5%, transparent 80%) var(--d1, right),
+        radial-gradient(var(--r1, 100%) var(--r2, 80%) at var(--p2, bottom), transparent 79.5%, white 80%) var(--d2, left);
+    -webkit-mask-size: 50.1% 100%;
+    -webkit-mask-repeat: no-repeat;
+    mask-size: 50.1% 100%;
+    mask-repeat: no-repeat;
+}
+
+.mainBg:before {
+    top: 0;
+    background: linear-gradient(to bottom right, #702cc8, #0065ff);
+}
+
+.mainBg:after {
+    bottom: 0;
+    background: linear-gradient(to bottom right, #fff, #fff);
+    --p1: bottom;
+    --p2: top;
+    --d1: left;
+    --d2: right;
+}
+
+.customCard {
+    background: #f6f6f6;
+    padding: 20px 0;
+    border-radius: 20px;
+    height: 80vh;
+    overflow: hidden;
+    top: 15vh;
+    max-width: 500px;
+    min-width: 500px;
+    position: absolute;
+    z-index: 99;
+}
+
+.innerCard {
+    height: 70vh;
+    overflow-y: auto;
+    background: #fff;
+    padding-bottom: 20px;
+}
+
+.innerCard::-webkit-scrollbar {
+    width: 6px;
+}
+
+.innerCard::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+.innerCard::-webkit-scrollbar-thumb {
+    background: #c0c0c0;
+}
+
+.innerCard::-webkit-scrollbar-thumb:hover {
+    background: #8b8b8b;
+}
+
+@media screen and (max-width:768px){
+    .customCard {
+        top: 10vh;
+        max-width: 100%;
+        min-width: 95%;
+    }
+}
